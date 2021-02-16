@@ -140,11 +140,36 @@ body {font-family: Verdana, sans-serif;}
 }
 
 /* Highlight the "current" day */
+
+.selectedDay {
+  background-color: rgb(24, 22, 22) !important;
+  color: white !important;
+}
+
+.month {
+  background-color: rgb(24, 22, 22);
+}
+
+.eachDay {
+  margin-bottom: 0 !important;
+  padding: 0.5rem;
+}
+
 .days li .active {
   padding: 5px;
   background: #1abc9c;
-  color: white !important
+  color: white !important;
 }
 
+.eachDay:hover {
+  background-color: rgb(73, 71, 71);
+  cursor: pointer;
+}
 
-
+.twentyNine,
+.thirty,
+.thirtyOne {
+  pointer-events: none;
+  opacity: 0.6;
+  color: rgb(36, 35, 35) !important;
+} 
