@@ -16,43 +16,52 @@ let todayYear = document.querySelector('.year')
 let date = new Date();
 let whatMonthIsIt = date.getMonth()
 let whatYearIsIt = date.getFullYear()
+let whatDayIsIt = date.getDay()
+const day = document.querySelectorAll('.eachDay')
+let twoNine = document.querySelector('.twoNine')
+let threeZero = document.querySelector('.threeZero')
+let threeOne = document.querySelector('.threeOne')
+const calenderView = document.querySelector('.calenderView')
+const listView = document.querySelector('.listView')
+const dropdownMenu2 = document.querySelector('#dropdownMenu2')
+
 
 window.addEventListener('load', (event) => {
     todayMonth.innerText = months[whatMonthIsIt];
     todayYear.innerText = whatYearIsIt;
-
+    shouldGrey()
 })
 
 monthPrev.addEventListener('click', (event) => {
+    removeSelection()
     if (whatMonthIsIt === 0) {
         whatMonthIsIt = 11;
         whatYearIsIt -= 1;
         todayMonth.innerText = months[whatMonthIsIt];
         todayYear.innerText = whatYearIsIt;
-        shouldGrey();
+        shouldGrey()
     } else {
         whatMonthIsIt -= 1;
         todayMonth.innerText = months[whatMonthIsIt];
+        shouldGrey()
     }
 })
 
 monthNext.addEventListener('click', (event) => {
+    removeSelection()
     if (whatMonthIsIt === 11) {
         whatMonthIsIt = 0;
         whatYearIsIt += 1;
         todayMonth.innerText = months[whatMonthIsIt];
         todayYear.innerText = whatYearIsIt;
+        shouldGrey()
     } else {
         whatMonthIsIt += 1;
         todayMonth.innerText = months[whatMonthIsIt];
+        shouldGrey()
     }
 })
 
-//calender days
-const day = document.querySelectorAll('.eachDay')
-const day29 = document.querySelectorAll('.twoNine')
-const day30 = document.querySelectorAll('.three')
-const day31 = document.querySelectorAll('.threeOne')
 
 window.addEventListener('load', (event) => {
 
@@ -71,8 +80,33 @@ function removeSelection() {
     })
 }
 
-// function shouldGrey() {
-//     if (whatMonthIsIt === 0 || whatMonthIsIt === 2 || whatMonthIsIt === 4 || whatMonthIsIt === 6 || whatMonthIsIt === 7 || whatMonthIsIt === 9 || whatMonthIsIt === 11) {
-//         day31.classList.add('thirtyOne')
-//     }
-// }
+function shouldGrey() {
+    if (whatMonthIsIt === 1 || whatMonthIsIt === 3 || whatMonthIsIt === 5 || whatMonthIsIt === 8 || whatMonthIsIt === 10) {
+        threeOne.classList.add('thirtyOne')
+        if (leapMonth(whatMonthIsIt, whatYearIsIt) === true) {
+            twoNine.classList.add('twentyNine')
+            threeZero.classList.add('thirty')
+        }
+    } else {
+        twoNine.classList.remove('twentyNine')
+        threeZero.classList.remove('thirty')
+        threeOne.classList.remove('thirtyOne')
+    }
+}
+
+function leapMonth(month, year) {
+    return (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) && month === 1;
+}
+
+//dropdownToggle
+listView.addEventListener('click', (event) => {
+    calenderView.classList.remove('selected')
+    listView.classList.add('selected')
+    dropdownMenu2.innerText = 'List View';
+})
+
+calenderView.addEventListener('click', (event) => {
+    listView.classList.remove('selected')
+    calenderView.classList.add('selected')
+    dropdownMenu2.innerText = 'Calender View';
+})
