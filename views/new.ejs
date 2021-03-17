@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+
+    <%- include('partials/nav') %>
+
+        <div class="container-xxl">
+            <h1 class="h1 display-5">New Entry</h1>
+
+
+            <form action="#">
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" class="form-control" id="subject" placeholder="Enter subject">
+                </div>
+                <div class="form-group">
+                    <label for="entry">Entry</label>
+                    <input contenteditable="true" type="text" class="form-control" id="entry" placeholder="Entry">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </form>
+
+
+
+        </div>
+
+        <%- include('partials/footer') %>

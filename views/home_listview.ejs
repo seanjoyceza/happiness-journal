@@ -1,0 +1,87 @@
+<%- include('partials/header') %>
+
+    <%- include('partials/nav') %>
+
+        <div class="container-xxl">
+            <h1 class="h1 display-5">Welcome, <%=user%>
+            </h1>
+
+            <div class="dropdown pt-3 fs-6">
+                <div class="dropdown">
+                    <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenu2"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        List View
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <li><a class="calenderView dropdown-item" href="/" type="button">Calender
+                                View</a>
+                        </li>
+                        <li><a class="listView dropdown-item" selected="selected" href="/l">List View</a></li>
+                    </ul>
+                </div>
+                <hr>
+            </div>
+
+            <div class="radios fs-6 container">
+                <div class="form-check-inline">
+                    <label for="sort">Sort:</label>
+                    <br>
+                    <input class="form-check-input" type="radio" id="date" name="sort" value="date" checked="">
+                    <label class="active form-check-label" for="date">By Date</label>
+                </div>
+                <div class="form-check-inline ps-2">
+                    <input class="form-check-input" type="radio" id="alpha" name="sort" value="alpha">
+                    <label class="form-check-label" for="alpha">Alphabetically <small>(Subject)</small></label>
+
+                </div>
+                <hr>
+                <div class="form-check">
+                    <div class="form-check-inline">
+                        <input class="form-check-input" type="radio" id="ascend" name="order" value="ascend">
+                        <label class="form-check-label" for="ascend">Ascending</label>
+                    </div>
+
+                    <div div class="form-check-inline ps-2">
+                        <input class="form-check-input" type="radio" id="descend" name="order" value="descend"
+                            checked="">
+                        <label class="form-check-label checked" for="descend">Descending</label>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <div class="list container">
+
+                <% for (let entry of userEntries_dateDes) { %>
+                    <div class="entry border border-4 rounded-3 m-4 py-2 row col-11">
+                        <div class="row">
+                            <div class="col-4 border-end">
+                                <div class='entry_heading'>
+                                    <div class="entry fs-3">
+                                        <%= entry.date %>
+                                    </div>
+                                </div>
+                                <div class="subject fs-5">
+                                    <%= entry.subject %>
+                                </div>
+                                <small class="">
+                                    Rating: <%= entry.rating %>
+                                </small>
+                                <span class="badge rounded-pill bg-primary">
+                                    <small>
+                                        <%= entry.tag %>
+                                    </small>
+                                </span>
+                            </div>
+                            <div class="col-8">
+                                <%= entry.entry%>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+            </div>
+
+        </div>
+        <script src="/js/homepageListScript.js"></script>
+
+        <%- include('partials/footer') %>
