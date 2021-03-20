@@ -163,10 +163,23 @@ body {font-family: Verdana, sans-serif;}
   border-radius: 0.25rem;
 }
 
+.eachDay-has-entry {
+  float: left;
+  height: 5px;
+  width: 5px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+
 .eachDay:hover {
   background-color: rgb(24, 22, 22);
   cursor: pointer;
-  color: white
+  color: white;
+}
+
+.eachDay:hover .eachDay-has-entry {
+  background-color: white;
 }
 
 .twentyNine,

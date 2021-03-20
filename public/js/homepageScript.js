@@ -95,6 +95,7 @@ function removeSelection() {
     })
 }
 
+
 function shouldGrey() {
     if (whatMonthIsIt === 1 || whatMonthIsIt === 3 || whatMonthIsIt === 5 || whatMonthIsIt === 8 || whatMonthIsIt === 10) {
         threeOne.classList.add('thirtyOne')
@@ -112,6 +113,10 @@ function shouldGrey() {
 function leapMonth(month, year) {
     return (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) && month === 1;
 }
+
+
+
+
 
 
 

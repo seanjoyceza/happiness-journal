@@ -15,7 +15,13 @@ app.listen(3000, () => {
 app.get('/', (req, res) => {
     const user = data.seanjoyce.first_name;
     const userEntries = data.seanjoyce.entries;
-    res.render('home.ejs', { user, userEntries }) //it assumes to look in views directory
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+    let hasEntry = [];
+    for (entry of userEntries) {
+        hasEntry.push(entry.date_num);
+    }
+    res.render('home.ejs', { user, userEntries, hasEntry }) //it assumes to look in views directory
 })
 
 app.get('/l', (req, res) => {
@@ -23,6 +29,7 @@ app.get('/l', (req, res) => {
     const userEntries = data.seanjoyce.entries;
     let userEntries_dateAsc = userEntries;
     let userEntries_dateDes = userEntries;
+    res.json(user)
     //sort bydate ascending
     userEntries_dateAsc.sort((a, b) => {
         if (a.date_num < b.date_num) {
@@ -40,7 +47,7 @@ app.get('/l', (req, res) => {
         }
     })
 
-    res.render('home_listview.ejs', { user, userEntries_dateAsc, userEntries_dateDes }) //it assumes to look in views directory
+    res.render('home_listview.ejs', { user, userEntries, userEntries_dateAsc, userEntries_dateDes }) //it assumes to look in views directory
 })
 
 app.get('/new', (req, res) => {
@@ -55,3 +62,6 @@ app.get('/entry', (req, res) => {
 app.get('*', (req, res) => {
     res.send("Page URL not recognised")
 })
+
+
+
