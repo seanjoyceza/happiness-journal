@@ -51,105 +51,79 @@
                 </ul>
 
                 <ul class="days">
-                    <li class="eachDay hasEntry">1</li>
-                    <li class="eachDay">2</li>
-                    <li class="eachDay">3</li>
-                    <li class="eachDay">4</li>
-                    <li class="eachDay">5</li>
-                    <li class="eachDay">6</li>
-                    <li class="eachDay">7</li>
-                    <li class="eachDay">8</li>
-                    <li class="eachDay">9</li>
-                    <li class="eachDay">10</li>
-                    <li class="eachDay">11</li>
-                    <li class="eachDay">12</li>
-                    <li class="eachDay">13</li>
-                    <li class="eachDay">14</li>
-                    <li class="eachDay">15</li>
-                    <li class="eachDay">16</li>
-                    <li class="eachDay">17</li>
-                    <li class="eachDay">18</li>
-                    <li class="eachDay">19</li>
-                    <li class="eachDay">20</li>
-                    <li class="eachDay">21</li>
-                    <li class="eachDay">22</li>
-                    <li class="eachDay">23</li>
-                    <li class="eachDay">24</li>
-                    <li class="eachDay">25</li>
-                    <li class="eachDay">26</li>
-                    <li class="eachDay">27</li>
-                    <li class="eachDay">28</li>
-                    <li class="eachDay twoNine">29</li>
-                    <li class="eachDay threeZero">30</li>
-                    <li class="eachDay threeOne">31</li>
-                </ul>
-                <hr>
-                <div class="selected_entry" hidden>
-                    <div class='calender_entry_heading'>
-                        <h4 class="homepage_entry">January 3rd, 2021</h4>
-                    </div>
-                    <div class="entry_subheading">
-                        <small class="text-muted">Rating: 7</small><span
-                            class="badge rounded-pill bg-danger">work</span>
-                    </div>
-                    <h6>Design Course</h6>
 
-                    <hr>
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores facere corporis suscipit
-                        necessitatibus praesentium cum provident dicta amet qui nihil, illo iste ad molestiae velit,
-                        dolorem
-                        impedit molestias. Pariatur, expedita.
-                        Facilis excepturi repellat optio aliquam nulla quisquam accusamus reiciendis natus voluptatibus,
-                        cumque
-                        quo mollitia dicta vero impedit veniam, nesciunt dolorem! Illo dolores quia odio minima, et
-                        deleniti
-                        voluptatibus enim necessitatibus!
-                        Modi, nobis? Ipsa quia sapiente magni repellendus debitis facilis quas aspernatur non,
-                        accusantium
-                        quo
-                        aperiam omnis ex quis. Soluta atque, ullam esse exercitationem necessitatibus aspernatur
-                        asperiores
-                        blanditiis minima accusamus. Ipsa?
-                        Est harum, esse dicta eveniet fugit voluptatum nobis voluptates laborum excepturi veritatis id,
-                        sit
-                        molestiae facere repellendus corrupti cum hic aliquid. Sapiente, odio earum ex necessitatibus
-                        vero
-                        debitis modi numquam?
-                        Deserunt accusamus praesentium veritatis culpa, repudiandae accusantium quod corporis numquam
-                        repellat
-                        quaerat atque nam unde non sequi in temporibus. Eligendi consectetur illum tempore quaerat. Quae
-                        amet
-                        nemo delectus sit accusantium.
-                        Molestias itaque ex sapiente, vitae, soluta eaque dolorem voluptatem obcaecati, corrupti
-                        voluptatum
-                        consectetur vero distinctio perferendis esse dignissimos blanditiis officiis similique
-                        praesentium
-                        pariatur ipsum consequuntur repellendus porro expedita aliquam? Non?
-                        Explicabo sapiente, iste cum magnam asperiores quo dolor ipsum sequi sit! Consequuntur obcaecati
-                        nemo
-                        cupiditate fugiat molestias aut quidem maxime quae explicabo! Ratione, dolorem assumenda
-                        deleniti at
-                        nemo nihil asperiores.
-                        Sequi quisquam saepe atque vero aspernatur optio? Sapiente, laboriosam id. Possimus distinctio
-                        vel,
-                        ullam praesentium id culpa porro laborum quisquam vitae et aliquam laudantium excepturi sed fuga
-                        maxime?
-                        Laboriosam, tempore.
-                        Eum, excepturi assumenda, reprehenderit necessitatibus maiores et aliquam quo nesciunt,
-                        consectetur
-                        perferendis repudiandae minima eos cupiditate eaque sit doloribus quidem architecto quaerat odit
-                        reiciendis minus mollitia at nemo! Magnam, pariatur.
-                        Vitae quia earum suscipit, quo fugiat facilis in ea hic ex dignissimos. Cum quae, ducimus ab
-                        maiores
-                        porro deserunt. Blanditiis, consequatur nostrum sit omnis odit voluptas reprehenderit tenetur
-                        odio
-                        corporis.
-                    </p>
-                </div>
+
+                    <% for (let i=1; i < 32; i++) { %>
+                        <%let hasEntry=false;%>
+                            <%for (let entry of userEntries) {%>
+                                <%let dayNumber=entry.date_num.slice(-2);%>
+                                    <%if (dayNumber==i) {%>
+                                        <%hasEntry=true;%>
+                                            <%}%>
+                                                <%}%>
+                                                    <%if (hasEntry===true) {%>
+                                                        <%if (i==29) {%>
+                                                            <li class="eachDay twoNine"><span
+                                                                    class="eachDay-has-entry"></span>29</li>
+                                                            <%}%>
+                                                                <%if (i==30) {%>
+                                                                    <li class="eachDay threeZero"><span
+                                                                            class="eachDay-has-entry"></span>30</li>
+                                                                    <%}%>
+                                                                        <%if (i==31) {%>
+                                                                            <li class="eachDay threeOne"><span
+                                                                                    class="eachDay-has-entry"></span>31
+                                                                            </li>
+                                                                            <%} else {%>
+                                                                                <li class="eachDay"><span
+                                                                                        class="eachDay-has-entry"></span>
+                                                                                    <%=i%>
+                                                                                </li>
+                                                                                <%}%>
+                                                                                    <%} else {%>
+                                                                                        <%if (i==29) {%>
+                                                                                            <li class="eachDay twoNine">
+                                                                                                <span class=""></span>29
+                                                                                            </li>
+                                                                                            <%}%>
+                                                                                                <%if (i==30) {%>
+                                                                                                    <li
+                                                                                                        class="eachDay threeZero">
+                                                                                                        <span
+                                                                                                            class=""></span>30
+                                                                                                    </li>
+                                                                                                    <%}%>
+                                                                                                        <%if (i==31) {%>
+                                                                                                            <li
+                                                                                                                class="eachDay threeOne">
+                                                                                                                <span
+                                                                                                                    class=""></span>31
+                                                                                                            </li>
+                                                                                                            <%} else {%>
+                                                                                                                <li
+                                                                                                                    class="eachDay">
+                                                                                                                    <span
+                                                                                                                        class=""></span>
+                                                                                                                    <%=i%>
+                                                                                                                </li>
+                                                                                                                <%}%>
+                                                                                                                    <%}%>
+                                                                                                                        <%}%>
+
+
+                </ul>
+
+
+
+
+                <hr>
+
+
+
+
+
             </div>
 
-        </div>
         </div>
         <script src="/js/homepageScript.js"></script>
 
