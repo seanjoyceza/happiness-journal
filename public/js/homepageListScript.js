@@ -91,22 +91,18 @@ function sortingDesDate() {
 
 
 function sortingAscAlpha() {
-    // Select container with all entries
     let container = list;
-    // Returns HTMLCollection that contains all child elements
     let divCard = container.children;
 
-    // Convert selected HTML elements into array using slice
     divCard = Array.prototype.slice.call(divCard);
-    // Sort this new array using .sort
     divCard.sort(function (a, b) {
-        if (a.childNodes[1].childNodes[3].innerText > b.childNodes[1].childNodes[3].innerText) {
+        if (a.childNodes[1].childNodes[1].childNodes[3].innerText > b.childNodes[1].childNodes[1].childNodes[3].innerText) {
             return -1;
         } else {
             return 1;
         }
     })
-    // Append array into container 
+
     for (let i = 0, l = divCard.length; i < l; i++) {
         container.appendChild(divCard[i]);
     }
@@ -119,12 +115,13 @@ function sortingDesAlpha() {
 
     divCard = Array.prototype.slice.call(divCard);
     divCard.sort(function (a, b) {
-        if (a.childNodes[5].innerText < b.childNodes[5].innerText) {
+        if (a.childNodes[1].childNodes[1].childNodes[3].innerText < b.childNodes[1].childNodes[1].childNodes[3].innerText) {
             return -1;
         } else {
             return 1;
         }
     })
+
     for (let i = 0, l = divCard.length; i < l; i++) {
         container.appendChild(divCard[i]);
     }

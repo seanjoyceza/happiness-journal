@@ -6,19 +6,34 @@
             <h1 class="h1 display-5">New Entry</h1>
 
 
-            <form action="#">
+            <form method="post" action="/l">
+                <div class="form-group">
+                    <label for="start">Entry date:</label>
+                    <input type="date" id="start" name="date_num" value="2018-07-22" min="2018-01-01" max="2050-12-31">
+                </div>
+                <div class="form-group">
+                    <label for="tag">Tag</label>
+                    <input contenteditable="true" type="text" class="form-control" name="tag" id="tag"
+                        placeholder="Tag">
+                </div>
+                <div class="form-group">
+                    <label for="rating">Rating</label>
+                    <input contenteditable="true" type="number" class="form-control" name="rating" id="rating"
+                        placeholder="Rating">
+                </div>
                 <div class="form-group">
                     <label for="subject">Subject</label>
-                    <input type="text" class="form-control" id="subject" placeholder="Enter subject">
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter subject">
                 </div>
                 <div class="form-group">
                     <label for="entry">Entry</label>
-                    <input contenteditable="true" type="text" class="form-control" id="entry" placeholder="Entry">
+                    <input contenteditable="true" type="text" class="form-control" name="entry" id="entry"
+                        placeholder="Entry">
                 </div>
                 <br>
-                <button type="submit" class="btn btn-dark">Submit</button>
+                <button class="btn btn-dark">Submit</button>
             </form>
-
+            <a href="/l">Back to Entries</a>
 
 
         </div>
